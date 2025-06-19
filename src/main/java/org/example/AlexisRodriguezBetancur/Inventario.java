@@ -41,7 +41,7 @@ public class Inventario {
                 }
 
             } catch (Exception Error) {
-                System.out.println("Uppssi, Cuidado viej@ te has equivocado  JAKJDKASJD mer@ tontis");
+                System.out.println("Uppssi, Cuidado viej@ te has equivocado");
             }
 
         }
