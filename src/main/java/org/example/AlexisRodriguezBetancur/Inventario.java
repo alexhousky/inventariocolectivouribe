@@ -1,5 +1,5 @@
 package org.example.AlexisRodriguezBetancur;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Inventario {
@@ -29,6 +29,8 @@ public class Inventario {
             try {
                 //Evaluar las codicionales del menu
                 if (menuOption == 2){
+
+                    ArrayList<Integer> products = new ArrayList<>();
 
                 } else if (menuOption==3) {
 
