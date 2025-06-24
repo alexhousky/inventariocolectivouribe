@@ -1,5 +1,11 @@
 package org.example.AlexisRodriguezBetancur;
 
+import com.sun.security.jgss.GSSUtil;
+
+import java.security.cert.CertificateRevokedException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Inventario {
@@ -9,6 +15,7 @@ public class Inventario {
         Scanner keyEntry = new Scanner(System.in);
         Integer menuOption=null;
         String colorVerde="\u001B[32m";
+        ArrayList<Object> productos = new ArrayList<>();
 
         //PROCESO 1 (Crear el menu de opciones)
         System.out.println("\n******************");
@@ -25,26 +32,54 @@ public class Inventario {
 
         System.out.println("\nApreciado usuario, digita una opcion: ");
         menuOption = keyEntry.nextInt();
+
         while(menuOption!=5){
+        //creando objetos/diccionarios/hashmaps en java
+            HashMap<String,Object> diccionario = new HashMap<>();
             try {
                 //Evaluar las codicionales del menu
-                if (menuOption == 2){
+                if (menuOption == 1){
+                    System.out.println("Registrando un producto...");
 
+                    // Agregando una lista de java
+                    //System.out.println("Digita el producto que quieras agregar a la BD");
+                    //keyEntry.nextLine();
+                    //productos.add(keyEntry.nextLine());
+
+                    //llenando un diccionario
+
+                    System.out.println("Digita la ID del producto");
+                    diccionario.put("ID",keyEntry.nextInt());
+
+                    System.out.println("Digita el precio del producto");
+                    diccionario.put("Precio", keyEntry.nextInt());
+
+                    System.out.println("Digita el nombre del producto");
+                    keyEntry.nextLine(); //Limpio el buffer
+                    diccionario.put("Nombre", keyEntry.nextLine());
+
+                    productos.add(diccionario);
+                    System.out.println(diccionario);
+                } else if (menuOption==2) {
+                    System.out.println("Mostrando el inventario...");
+                    System.out.println(productos);
                 } else if (menuOption==3) {
-
-                } else if (menuOption==3) {
-
+                    System.out.println("Modificando un producto...");
                 } else if (menuOption==4) {
-
+                    System.out.println("Eliminando un producto del inventario...");
                 } else if (menuOption==5) {
-
+                    System.out.println("Gracias por usar nuestra app...");
                 }
 
-            } catch (Exception Error) {
-                System.out.println("Uppssi, Cuidado viej@ te has equivocado  JAKJDKASJD mer@ tontis");
+                System.out.println("Ahora digita otra opcion: ");
+                menuOption = keyEntry.nextInt();
+
+            } catch (Exception error) {
+                System.out.println(error.getMessage());
             }
 
         }
+
 
         //PROCESO 2
 
